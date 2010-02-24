@@ -28,3 +28,4 @@ t/stringify.t
 Makefile.PL
 META.yml
 LICENSE
+SIGNATURE    Added here by Module::Build

@@ -1,0 +1,53 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.61.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 a25e0a8e31765ebf42f943f12a39ce2ab84d5da5 Build.PL
+SHA1 3f0f48d883c217ccb6925b76f7c5fce101df2a2a CHANGES
+SHA1 b331ad50e4d7042fd2fe82ddfb399b021eb4618b LICENSE
+SHA1 3fdc680661de75b4174ded47c265a6900318889e MANIFEST
+SHA1 3aa708cbb2c691597068cf93217c17b41a3508bd MANIFEST.SKIP
+SHA1 b9b26661216e264265d9fc689be8cae19fc5a8b2 META.yml
+SHA1 85ce270586587bb87c090f5edb014e575945129b Makefile.PL
+SHA1 7c484d22087ad9d96e8480c9d11051631c7a2fd1 README
+SHA1 2463d9b66c3b8b2b0c53610ed00f62b33d7b9cfd create_backpan_index.pl
+SHA1 5b69ca38217d66bab25b8b4cebcf57de33a4a4dc examples/backpan.pl
+SHA1 43478f86c9492c49f142cf7e57ddbb08fcb1e0a0 lib/BackPAN/Index.pm
+SHA1 a831c962dffe4f7bcf7c63369b3b2ad2aecded1e lib/BackPAN/Index/Dist.pm
+SHA1 da5a857ed197316cab9d32ea41733a78027cff25 lib/BackPAN/Index/File.pm
+SHA1 55c33df814b6349b4191bb9ae36b14501431ec6c lib/BackPAN/Index/Release.pm
+SHA1 9f9cf54710ecf4376ef1ddefd357e19057eb67c8 lib/BackPAN/Index/Role/AsHash.pm
+SHA1 634aff7963e25b75d98b832e67834b4e669a0253 lib/BackPAN/Index/Schema.pm
+SHA1 e9a4b558a4f933bd0e523b4484bbaae67b4e8f05 lib/Parse/BACKPAN/Packages.pm
+SHA1 64de2488257a5618234b76fe1cfa6bf4b3ef085a t/00compile.t
+SHA1 beebf607ec71c6a0275fd04ed91ed270664488d6 t/00setup.t
+SHA1 fab0e8991f90da29b4fc656d287f0e523eace651 t/Parse-BACKPAN-Packages/simple.t
+SHA1 dfde0d500467631ae49b2fc7d5df7d351cb2dc91 t/as_hash.t
+SHA1 eaf8ad7bcba875d5010c4b6e006e98f9fc850f19 t/authors.t
+SHA1 d55bfaa897e20a1e118ba7ff0624b0395f91a429 t/backpan.txt.gz
+SHA1 f6d3e707f6c343cc85a8451a45150c60e745af75 t/cgi.t
+SHA1 9ce483ce15e1fb608027864b24007b63f31ba5b4 t/distributions.t
+SHA1 8864f5c3ba4b2c33465e055fa221f13f7bcc2189 t/lib/TestUtils.pm
+SHA1 c67819d6b3068a694e56b5450c9aa9b9bc095fcb t/only_authors.t
+SHA1 5cab71a927fc7deaebb2ccf2f0238f3380bcb938 t/pod.t
+SHA1 90287816163957f230293bda2c22ed6a1b3eca8b t/pod_coverage.t
+SHA1 9cc9a02a0909479f0b0c2a0371bfc13d31145f90 t/stringify.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.13 (Darwin)
+
+iEYEARECAAYFAkuEq3AACgkQWMohlhD1Qyd/cQCgzr6ByU/bujYRO6KA7Yr7L6yu
+go0AoIYAaHrCHdiLn6VrHwzN8TiMRQfK
+=fZOI
+-----END PGP SIGNATURE-----
