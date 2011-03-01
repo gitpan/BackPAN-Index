@@ -3,7 +3,7 @@ package BackPAN::Index;
 use strict;
 use warnings;
 
-our $VERSION = '0.39';
+our $VERSION = '0.40';
 
 use autodie;
 use App::Cache 0.37;
@@ -28,7 +28,7 @@ __PACKAGE__->mk_accessors(qw(
 ));
 
 my %Defaults = (
-    backpan_index_url           => "http://www.astray.com/tmp/backpan.txt.gz",
+    backpan_index_url           => "http://gitpan.integra.net/backpan-index.gz",
     releases_only_from_authors  => 1,
     debug                       => 0,
     cache_ttl                   => 60 * 60,
@@ -240,14 +240,14 @@ sub _setup_database {
     my %create_for = (
         files           => <<'SQL',
 CREATE TABLE IF NOT EXISTS files (
-    path        TEXT            PRIMARY KEY,
+    path        TEXT            NOT NULL PRIMARY KEY,
     date        INTEGER         NOT NULL,
     size        INTEGER         NOT NULL CHECK ( size >= 0 )
 )
 SQL
         releases        => <<'SQL',
 CREATE TABLE IF NOT EXISTS releases (
-    path        TEXT            PRIMARY KEY REFERENCES files,
+    path        TEXT            NOT NULL PRIMARY KEY REFERENCES files,
     dist        TEXT            NOT NULL REFERENCES dists,
     date        INTEGER         NOT NULL,
     size        TEXT            NOT NULL,
@@ -260,7 +260,7 @@ SQL
 
         dists           => <<'SQL',
 CREATE TABLE IF NOT EXISTS dists (
-    name                TEXT            PRIMARY KEY,
+    name                TEXT            NOT NULL PRIMARY KEY,
     first_release       TEXT            NOT NULL REFERENCES releases,
     latest_release      TEXT            NOT NULL REFERENCES releases,
     first_date          INTEGER         NOT NULL,

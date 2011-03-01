@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.61.
+signed via the Module::Signature module, version 0.66.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -15,22 +15,23 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 cafef2afb668f8f0628277061a6b8c7ed2efe0c0 Build.PL
-SHA1 194525ab375cf04d19d888eb761c0743d5ab41e8 CHANGES
-SHA1 b331ad50e4d7042fd2fe82ddfb399b021eb4618b LICENSE
-SHA1 1af29c648507bb95631dea34f97d79f4d5033e9d MANIFEST
-SHA1 3aa708cbb2c691597068cf93217c17b41a3508bd MANIFEST.SKIP
-SHA1 cc9be084f050787610b6d606470c281e22e146bb META.yml
-SHA1 eebf1c08ba41ceec45f6d4ae71dbde2e00160e91 Makefile.PL
-SHA1 7c484d22087ad9d96e8480c9d11051631c7a2fd1 README
+SHA1 edba52faf62158826b8a0f8e65238f66ae4dce99 CHANGES
+SHA1 2375e6daabfdfb68d8b70fca48aefc5ea20d0077 LICENSE
+SHA1 26cd98f86b514030eaff085f7c80d482885850da MANIFEST
+SHA1 aeba238517337cb2a84f85e028b1d777c35dfbed MANIFEST.SKIP
+SHA1 73461ef22c0db027d81de3f5c2943f31496eab01 META.json
+SHA1 3e7f86fc9471f3632e956abd96495574c3d685cb META.yml
+SHA1 43a401ee3bda4c82d3f05ebfd28657a6a468b69b Makefile.PL
+SHA1 ff46b51bcaf1032e99fb25638e52ecf176819530 README
 SHA1 2463d9b66c3b8b2b0c53610ed00f62b33d7b9cfd create_backpan_index.pl
 SHA1 5b69ca38217d66bab25b8b4cebcf57de33a4a4dc examples/backpan.pl
-SHA1 8184440e7042afe550c7637baeabb66227e03150 lib/BackPAN/Index.pm
+SHA1 82a6ff9346926a75a61231e9c8375d37b374ed3c lib/BackPAN/Index.pm
 SHA1 a831c962dffe4f7bcf7c63369b3b2ad2aecded1e lib/BackPAN/Index/Dist.pm
 SHA1 da5a857ed197316cab9d32ea41733a78027cff25 lib/BackPAN/Index/File.pm
 SHA1 55c33df814b6349b4191bb9ae36b14501431ec6c lib/BackPAN/Index/Release.pm
 SHA1 9f9cf54710ecf4376ef1ddefd357e19057eb67c8 lib/BackPAN/Index/Role/AsHash.pm
 SHA1 fee34fd451390783f724dcb398c965534ed5d160 lib/BackPAN/Index/Schema.pm
-SHA1 c7c3418daf2b79f69078c2965b85e7f75a892b23 lib/Parse/BACKPAN/Packages.pm
+SHA1 73bdbd044c191cd6be677bcc04428c76df6f0132 lib/Parse/BACKPAN/Packages.pm
 SHA1 64de2488257a5618234b76fe1cfa6bf4b3ef085a t/00compile.t
 SHA1 beebf607ec71c6a0275fd04ed91ed270664488d6 t/00setup.t
 SHA1 fab0e8991f90da29b4fc656d287f0e523eace651 t/Parse-BACKPAN-Packages/simple.t
@@ -45,9 +46,9 @@ SHA1 5cab71a927fc7deaebb2ccf2f0238f3380bcb938 t/pod.t
 SHA1 90287816163957f230293bda2c22ed6a1b3eca8b t/pod_coverage.t
 SHA1 9cc9a02a0909479f0b0c2a0371bfc13d31145f90 t/stringify.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v2.0.13 (Darwin)
+Version: GnuPG v2.0.16 (Darwin)
 
-iEYEARECAAYFAkvJ7ccACgkQWMohlhD1Qyf2bQCgpsZIqHiaq2+5B5E/1N8meoDi
-BfYAnja8T1N/VQJR6qv4ibO5Yp49ubaX
-=/sfK
+iEYEARECAAYFAk1sRPIACgkQWMohlhD1Qyc+9QCgpcXTAOJz5EN5fYXLX2o/THQo
+OGEAoL2FRKzU/SCa3oBasF2BFkfsz0if
+=U1YP
 -----END PGP SIGNATURE-----
