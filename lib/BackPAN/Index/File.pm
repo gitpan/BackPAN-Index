@@ -1,15 +1,47 @@
+use utf8;
 package BackPAN::Index::File;
+
+# Created by DBIx::Class::Schema::Loader
+# DO NOT MODIFY THE FIRST PART OF THIS FILE
 
 use strict;
 use warnings;
 
+use base 'DBIx::Class::Core';
+__PACKAGE__->table("files");
+__PACKAGE__->add_columns(
+  "path",
+  { data_type => "text", is_nullable => 0 },
+  "date",
+  { data_type => "integer", is_nullable => 0 },
+  "size",
+  { data_type => "integer", is_nullable => 0 },
+);
+__PACKAGE__->set_primary_key("path");
+__PACKAGE__->might_have(
+  "release",
+  "BackPAN::Index::Release",
+  { "foreign.path" => "self.path" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07033 @ 2012-12-27 01:39:08
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:gqi9QR+IxPMmdduz2/1BHA
+
+use Mouse;
+with 'BackPAN::Index::Role::AsHash';
+
+use URI;
 use File::Basename qw(basename);
 
 use overload
   q[""]         => sub { $_[0]->path },
   fallback      => 1;
 
-use BackPAN::Index::Role::AsHash;
+sub backpan_root {
+    return URI->new("http://backpan.perl.org/");
+}
 
 sub data_methods {
     return qw(path date size);
@@ -17,7 +49,9 @@ sub data_methods {
 
 sub url {
     my $self = shift;
-    return "http://backpan.cpan.org/" . $self->path;
+    my $url = $self->backpan_root;
+    $url->path($self->path);
+    return $url;
 }
 
 sub filename {

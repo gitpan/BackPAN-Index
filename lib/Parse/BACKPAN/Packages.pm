@@ -5,24 +5,42 @@ use warnings;
 
 our $VERSION = '0.40';
 
-use parent qw(Class::Accessor::Fast);
+use Mouse;
+use BackPAN::Index::Types;
 
-use BackPAN::Index;
+has no_cache =>
+  is		=> 'ro',
+  isa		=> 'Bool',
+  default 	=> 0;
 
-__PACKAGE__->mk_accessors(qw(
-    _delegate
-));
+has only_authors =>
+  is		=> 'ro',
+  isa		=> 'Bool',
+  default	=> 1
+;
 
-sub new {
-    my $class   = shift;
-    my $options = shift;
+has _delegate =>
+  is	=> 'rw',
+  isa	=> 'BackPAN::Index';
+
+
+sub BUILD {
+    my $self = shift;
+    my $args = shift;
 
     # Translate from PBP options to BackPAN::Index
-    $options->{update}                     = 1 if $options->{no_cache};
-    $options->{releases_only_from_authors} = $options->{only_authors};
+    if( exists $args->{no_cache} ) {
+	$args->{update} = $args->{no_cache};
+    }
 
-    my $backpan = BackPAN::Index->new($options);
-    return $class->SUPER::new({ _delegate => $backpan });
+    if( exists $args->{only_authors} ) {
+	$args->{releases_only_from_authors} = $args->{only_authors};
+    }
+
+    require BackPAN::Index;
+    $self->_delegate( BackPAN::Index->new($args) );
+
+    return $self;
 }
 
 our $AUTOLOAD;
@@ -74,7 +92,7 @@ sub distributions_by {
     my ( $self, $author ) = @_;
     return unless $author;
 
-    my $dists = $self->_dbh->selectcol_arrayref(q[
+    my $dists = $self->db->dbh->selectcol_arrayref(q[
              SELECT DISTINCT dist
              FROM   releases
              WHERE  cpanid = ?
@@ -90,7 +108,7 @@ sub distributions_by {
 sub authors {
     my $self     = shift;
 
-    my $authors = $self->_dbh->selectcol_arrayref(q[
+    my $authors = $self->db->dbh->selectcol_arrayref(q[
         SELECT DISTINCT cpanid
         FROM     releases
         ORDER BY cpanid
@@ -102,7 +120,7 @@ sub authors {
 sub size {
     my $self = shift;
 
-    my $size = $self->_dbh->selectcol_arrayref(q[
+    my $size = $self->db->dbh->selectcol_arrayref(q[
         SELECT SUM(size) FROM files
     ]);
 

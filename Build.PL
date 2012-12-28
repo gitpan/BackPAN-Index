@@ -1,7 +1,9 @@
-use Module::Build;
 use strict;
+use lib 'inc';
 
-my $build = Module::Build->new(
+use MyBuilder;
+
+my $build = MyBuilder->new(
   license            => 'perl',
   module_name        => 'BackPAN::Index',
   dist_author        => [
@@ -12,13 +14,13 @@ my $build = Module::Build->new(
   requires           => {
     'App::Cache'            => '0.37',
     'CPAN::DistnameInfo'    => '0.09',
-    'Class::Accessor::Fast' => '0',
     CLASS                   => '1.00',
     'LWP::Simple'           => '0',
+    'URI'                   => '1.54',
     'Archive::Extract'      => '0',
     'DBIx::Class'           => '0.08109',
     'DBD::SQLite'           => '1.25',
-    'DBIx::Class::Schema::Loader'       => '0.05003',
+    'Mouse'		    => '0.64',
     'Path::Class'           => '0.17',
     autodie                 => '0',
     parent                  => '0',
@@ -30,17 +32,20 @@ my $build = Module::Build->new(
     'Test::Compile'         => '0.11',
   },
 
+  configure_requires => {
+    'Module::Build'         => '0.340201',
+  },
+
   recursive_test_files  => 1,
 
   meta_merge => {
       resources             => {
-          bugtracker        => 'http://rt.cpan.org/Public/Dist/Display.html?Name=Parse-BACKPAN-Packages',
+          bugtracker        => 'http://rt.cpan.org/Public/Dist/Display.html?Name=BackPAN-Index',
           repository        => 'http://github.com/acme/parse-backpan-packages',
       },
   },
 
   create_license        => 1,
-  create_makefile_pl    => 'traditional',
   create_readme         => 1,
 );
 $build->create_build_script;
